@@ -1,7 +1,7 @@
 import { test, expect, chromium, Browser, Page } from '@playwright/test';
 
 test('has title', async () => {
-   const browser:Browser= await chromium.launch({headless:false, channel:'chrome'});
+   const browser:Browser= await chromium.launch({headless:true, channel:'chrome'});
    const page:Page= await browser.newPage();
   await page.goto('https://playwright.dev/');
 
@@ -10,7 +10,7 @@ test('has title', async () => {
 });
 
 test('auth test', async () => {
-   const browser:Browser= await chromium.launch({headless:false, channel:'chrome'});
+   const browser:Browser= await chromium.launch({headless:true, channel:'chrome'});
    const page:Page= await browser.newPage();
   await page.goto('https://admin:admin@the-internet.herokuapp.com/basic_auth');
 
@@ -19,7 +19,7 @@ test('auth test', async () => {
 });
 //passing authorization through from Base 64
 test('auth test with authorization', async () => {
-   const browser:Browser= await chromium.launch({headless:false, channel:'chrome'});
+   const browser:Browser= await chromium.launch({headless:true, channel:'chrome'});
    const page:Page= await browser.newPage();
    const userName="admin";
    const passWord="admin";
