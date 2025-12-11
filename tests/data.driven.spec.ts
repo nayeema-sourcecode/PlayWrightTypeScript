@@ -21,28 +21,9 @@ import path from 'path';
         const errorLocator = page.locator('.error-message', { hasText: data.errorMessage });
         await expect(errorLocator).toHaveCount(0);
     }
-
+    await page.close();
     })
 });    
 
-  test.beforeEach(async ({ page }) => {
-    // common navigation before each test
-    await page.goto('https://conduit.bondaracademy.com/login');
-  });
-
-  test.afterEach(async ({ page }, testInfo) => {
-    // optional: capture screenshot on failure
-    if (testInfo.status !== testInfo.expectedStatus) {
-      const file = `screenshots/${testInfo.title.replace(/\s+/g, '_')}.png`;
-      await page.screenshot({ path: file, fullPage: true });
-      console.log('Saved failure screenshot:', file);
-    }
-  });
-
-  test.afterAll(async ({ page }) => {
-    // cleanup if needed
-    await new Promise(resolve => setTimeout(resolve, 1000)); // wait for any pending operations
-    await page.close();
-  });
-
+  
   
